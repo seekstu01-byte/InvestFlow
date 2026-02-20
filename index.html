@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="0; url=landing.html">
+  <title>AURUM 資產追蹤</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #0e1117;
+      color: #c9a84c;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .loading {
+      text-align: center;
+    }
+    .logo {
+      font-size: 4rem;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading">
+    <div class="logo">◈</div>
+    <p>載入中...</p>
+  </div>
+  <script>
+    // 如果沒有自動重定向，手動跳轉
+    setTimeout(() => {
+      window.location.href = 'landing.html';
+    }, 100);
+  </script>
+</body>
+</html>
