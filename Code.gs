@@ -2,7 +2,16 @@
 //  AURUM 資產追蹤 - Google Apps Script 後端 v2.4
 // ═══════════════════════════════════════════════
 
-function SS() { return SpreadsheetApp.getActiveSpreadsheet(); }
+function SS() {
+  const props = PropertiesService.getUserProperties();
+  let ssId = props.getProperty('spreadsheetId');
+  if (ssId) {
+    try { return SpreadsheetApp.openById(ssId); } catch(e) { /* 檔案被刪除，重建 */ }
+  }
+  const ss = SpreadsheetApp.create('AURUM 資產追蹤');
+  props.setProperty('spreadsheetId', ss.getId());
+  return ss;
+}
 
 function doGet() {
   return HtmlService.createHtmlOutputFromFile('app')
